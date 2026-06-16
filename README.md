@@ -1,314 +1,213 @@
-# 🌿 Organic Store
+
+#  Organic Store
 
 ![Laravel](https://img.shields.io/badge/Laravel-13-FF2D20?style=flat-square&logo=laravel&logoColor=white)
 ![PHP](https://img.shields.io/badge/PHP-8.4+-777BB4?style=flat-square&logo=php&logoColor=white)
-![SQLite](https://img.shields.io/badge/Database-SQLite%2FMySQL-003B57?style=flat-square&logo=sqlite&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/CSS-Tailwind-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white)
+![Database](https://img.shields.io/badge/Database-MySQL%2FSQLite-003B57?style=flat-square&logo=mysql&logoColor=white)
+![Frontend](https://img.shields.io/badge/UI-Tailwind%20CSS-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-22c55e?style=flat-square)
-![Status](https://img.shields.io/badge/Status-Active-22c55e?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Production%20Ready-22c55e?style=flat-square)
 
-A full-featured e-commerce web application built with **Laravel 13**, designed for selling organic products online. It includes a customer-facing storefront, a complete admin panel, order management with real-time status tracking, payment proof uploads, and email notifications.
+A **full-featured Laravel 13 E-Commerce Platform** for organic products, featuring a modern storefront, secure checkout system, admin dashboard, order tracking, and email notifications.
 
 ---
 
-## ✨ Features
+## 🚀 Key Features
 
-### Customer Facing
-- Product catalog with categories, search, and filters
-- Shopping cart (session-based, no login required to browse)
-- Coupon / discount code system
-- Checkout with multiple payment options:
-  - **Cash on Delivery (COD)**
-  - **Bank Transfer**
-  - **JazzCash**
-  - **EasyPaisa**
-- Payment proof image upload for online transfers
-- Order confirmation email on placement
-- Order status update emails (confirmed → processing → shipped → delivered)
-- Order history and detailed order tracking page
-- Two-way messaging between customer and admin per order
-- Return / refund request system
-- Downloadable PDF invoice per order
-- Product reviews and ratings
-- Wishlist
+### 🛍️ Customer Side
+- Product catalog with categories, search & filters
+- Shopping cart (session-based)
+- Coupon & discount system
+- Secure checkout system
+- Multiple payment methods:
+  - Cash on Delivery (COD)
+  - Bank Transfer
+  - JazzCash
+  - EasyPaisa
+- Payment proof upload system
+- Order tracking & history
+- Email notifications (order confirmation & updates)
+- Wishlist & product reviews
+- Two-way messaging with admin per order
+- PDF invoice download
+- Return & refund requests
 
-### Admin Panel (`/admin`)
-- Dashboard with sales overview and key metrics
-- Order management: view, update status, add tracking number
-- Payment proof review and verification per order
-- Two-way customer messaging per order
-- Product and category management (CRUD)
+### 🧑‍💼 Admin Panel
+- Dashboard with analytics
+- Product & category management (CRUD)
+- Order management & status updates
+- Payment verification system
+- Customer messaging system
 - Coupon management
-- Return request management
 - Sales reports
+- Return request handling
 
 ---
 
-## 🛠 Tech Stack
+## 🖼️ Screenshots
 
-| Layer | Technology |
-|---|---|
-| Framework | Laravel 13 |
-| Language | PHP 8.4+ |
-| Database | SQLite (dev) / MySQL (production) |
-| Frontend | Blade templates, vanilla CSS/JS |
-| File Storage | Laravel Storage (public disk) |
-| Email | Laravel Mail (SMTP / Mailtrap) |
-| Auth | Laravel Breeze |
+> 📌 Add your actual images inside `/screenshots` folder in your project.
+
+### 🏠 Home Page
+![Home Page](screenshots/home.png)
+
+### 🛒 Product Listing
+![Products](screenshots/products.png)
+
+### 📦 Cart Page
+![Cart](screenshots/cart.png)
+
+### 💳 Checkout Page
+![Checkout](screenshots/checkout.png)
+
+### 🧑‍💼 Admin Dashboard
+![Admin Dashboard](screenshots/admin-dashboard.png)
+
+### 📊 Order Management
+![Orders](screenshots/orders.png)
 
 ---
 
-## 🚀 Installation & Setup
+## 🛠️ Tech Stack
 
-### Requirements
-- PHP 8.4+
-- Composer
-- Node.js 18+ & npm
-- Git
+| Layer        | Technology |
+|-------------|-----------|
+| Backend      | Laravel 13 |
+| Language     | PHP 8.4+ |
+| Database     | MySQL / SQLite |
+| Frontend     | Blade + Tailwind CSS |
+| Auth         | Laravel Breeze |
+| Email        | SMTP (Mailtrap / Production SMTP) |
+| Storage      | Laravel Storage |
 
-### 1. Clone the repository
+---
 
+## ⚙️ Installation Guide
+
+### 1️⃣ Clone Repository
 ```bash
 git clone https://github.com/your-username/organic-store.git
 cd organic-store
-```
+````
 
-### 2. Install PHP dependencies
+### 2️⃣ Install Dependencies
 
 ```bash
 composer install
-```
-
-### 3. Install Node dependencies and build assets
-
-```bash
 npm install
 npm run build
 ```
 
-### 4. Environment configuration
+### 3️⃣ Setup Environment
 
 ```bash
 cp .env.example .env
 php artisan key:generate
 ```
 
-Open `.env` and configure:
+### 4️⃣ Configure Database
+
+Update `.env`:
 
 ```env
-APP_URL=http://localhost
-
-# Database (SQLite for local; mysql for production)
-DB_CONNECTION=sqlite
-
-# Mail — see Mail Configuration section below
-MAIL_MAILER=smtp
-MAIL_HOST=sandbox.smtp.mailtrap.io
-MAIL_PORT=2525
-MAIL_USERNAME=your_mailtrap_username
-MAIL_PASSWORD=your_mailtrap_password
-MAIL_FROM_ADDRESS="noreply@organicstore.com"
-MAIL_FROM_NAME="Organic Store"
+DB_CONNECTION=mysql
+DB_DATABASE=organic_store
+DB_USERNAME=root
+DB_PASSWORD=
 ```
 
-### 5. Run database migrations
+### 5️⃣ Run Migrations
 
 ```bash
 php artisan migrate --seed
 ```
 
-### 6. Create the public storage symlink
-
-> **Required** for payment proof images and product images to be publicly accessible.
+### 6️⃣ Create Storage Link
 
 ```bash
 php artisan storage:link
 ```
 
-### 7. Start the development server
+### 7️⃣ Start Server
 
 ```bash
 php artisan serve
 ```
 
-Visit `http://localhost:8000` in your browser.
+Visit:
+
+```
+http://localhost:8000
+```
 
 ---
 
-## 📧 Mail Configuration
-
-Emails are sent for:
-- **Order confirmation** — immediately after a customer places an order
-- **Order status updates** — each time the admin changes the order status
-
-| Environment | Recommended Setup |
-|---|---|
-| Local / Dev | [Mailtrap.io](https://mailtrap.io) — free sandbox that catches all emails |
-| Production | SendGrid, Mailgun, AWS SES, or your host's SMTP |
-
-**Setting up Mailtrap (local testing):**
-1. Sign up at [mailtrap.io](https://mailtrap.io) (free)
-2. Go to **Email Testing → Inboxes → SMTP Settings**
-3. Copy the credentials into your `.env` file
-
----
-
-## 👤 Default Admin Account
-
-After running `php artisan migrate --seed`, an admin account is created:
-
-| Field | Value |
-|---|---|
-| Email | `admin@organicstore.com` |
-| Password | `password` |
-
-> ⚠️ **Change this password immediately** before deploying to production.
-
-The admin panel is accessible at `/admin`.
-
----
-
-## 💳 Payment Methods
-
-| Method | Proof Required | Customer Status Label |
-|---|---|---|
-| Cash on Delivery | No | Pay on Delivery |
-| Bank Transfer | Yes | Awaiting Verification |
-| JazzCash | Yes | Awaiting Verification |
-| EasyPaisa | Yes | Awaiting Verification |
-
-Admins can update payment status to **Verified** or **Rejected** from the order detail page once proof is reviewed.
-
----
-
-## 📁 Project Structure
+## 📂 Project Structure
 
 ```
 app/
-├── Http/
-│   ├── Controllers/
-│   │   ├── Admin/                    # Admin panel controllers
-│   │   ├── Auth/                     # Authentication (Breeze)
-│   │   ├── CheckoutController.php    # Order placement & payment proof upload
-│   │   ├── OrderHistoryController.php
-│   │   ├── OrderNoteController.php   # Customer ↔ Admin messaging
-│   │   └── ...
-├── Mail/
-│   ├── OrderConfirmationMail.php     # Sent on order placement
-│   └── OrderStatusMail.php           # Sent on status change
-├── Models/
-│   ├── Order.php                     # Order model with status/payment label helpers
-│   ├── OrderNote.php                 # Per-order messages
-│   ├── OrderItem.php
-│   └── ...
+├── Http/Controllers
+├── Models
+├── Mail
 resources/
-├── views/
-│   ├── admin/orders/                 # Admin order detail & listing
-│   ├── emails/                       # HTML email templates
-│   ├── orders/                       # Customer order history & detail
-│   └── checkout/                     # Checkout flow & success page
+├── views (frontend + admin)
 routes/
-└── web.php                           # All application routes
 storage/
-└── app/public/payment_proofs/        # Uploaded payment screenshots
+public/
 ```
 
 ---
 
+## 📧 Email System
 
+* Order confirmation email
+* Order status update email
+* Admin notifications
 
+Recommended:
 
-##  Deployment Guide
+* Mailtrap (development)
+* SMTP (production)
 
-### Deploy to Shared Hosting (cPanel / Hostinger)
+---
 
-1. Upload all project files to your server (skip `/vendor` and `/node_modules`)
-2. SSH into your server and run:
-   ```bash
-   composer install --no-dev --optimize-autoloader
-   ```
-3. Update your `.env` with production values (see below)
-4. Run:
-   ```bash
-   php artisan migrate --force
-   php artisan storage:link
-   php artisan config:cache
-   php artisan route:cache
-   php artisan view:cache
-   ```
-5. Point your domain's document root to the `/public` folder
+## 👤 Default Admin
 
-### Deploy to VPS (Ubuntu + Nginx)
+| Email                                                   | Password |
+| ------------------------------------------------------- | -------- |
+| [admin@organicstore.com](mailto:admin@organicstore.com) | password |
+
+⚠️ Change credentials after setup.
+
+---
+
+## 🚀 Deployment
+
+### Production Checklist
+
+* Set `APP_ENV=production`
+* Set `APP_DEBUG=false`
+* Configure real SMTP
+* Switch DB to MySQL
+* Run:
 
 ```bash
-# Clone on server
-git clone https://github.com/your-username/organic-store.git /var/www/organic-store
-cd /var/www/organic-store
-
-# Install dependencies
-composer install --no-dev --optimize-autoloader
-
-# Configure environment
-cp .env.example .env
-# Edit .env with your production values
-php artisan key:generate
-
-# Run setup
-php artisan migrate --force
-php artisan storage:link
 php artisan optimize
-
-# Set permissions
-chown -R www-data:www-data storage bootstrap/cache
+php artisan config:cache
+php artisan route:cache
 ```
-
-Point Nginx document root to `/var/www/organic-store/public`.
-
-### Production `.env` values
-
-```env
-APP_ENV=production
-APP_DEBUG=false
-APP_URL=https://yourdomain.com
-
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_DATABASE=your_database
-DB_USERNAME=your_username
-DB_PASSWORD=your_password
-
-MAIL_MAILER=smtp
-MAIL_HOST=your_smtp_host
-MAIL_PORT=587
-MAIL_USERNAME=your_smtp_username
-MAIL_PASSWORD=your_smtp_password
-MAIL_FROM_ADDRESS="noreply@yourdomain.com"
-```
-
----
-
-## ✅ Production Deployment Checklist
-
-- [ ] Set `APP_ENV=production` and `APP_DEBUG=false`
-- [ ] Configure real SMTP credentials in `.env`
-- [ ] Switch `DB_CONNECTION` to `mysql` and set credentials
-- [ ] Run `php artisan migrate --force`
-- [ ] Run `php artisan storage:link`
-- [ ] Run `php artisan optimize`
-- [ ] Change the default admin password
-- [ ] Enable HTTPS on your domain
 
 ---
 
 ## 🔒 Security Notes
 
-- **Never commit your `.env` file** — it is listed in `.gitignore` by default
-- Set `APP_DEBUG=false` in production to hide error details
-- Always use HTTPS in production
-- Change default admin credentials before going live
+* Never upload `.env`
+* Use HTTPS in production
+* Secure admin routes
+* Keep credentials private
 
 ---
 
 ## 📄 License
 
-This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is licensed under the **MIT License*
