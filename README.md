@@ -1,7 +1,7 @@
 # 🌿 Organic Store
 
-![Laravel](https://img.shields.io/badge/Laravel-11-FF2D20?style=flat-square&logo=laravel&logoColor=white)
-![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?style=flat-square&logo=php&logoColor=white)
+![Laravel](https://img.shields.io/badge/Laravel-13-FF2D20?style=flat-square&logo=laravel&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-8.4+-777BB4?style=flat-square&logo=php&logoColor=white)
 ![SQLite](https://img.shields.io/badge/Database-SQLite%2FMySQL-003B57?style=flat-square&logo=sqlite&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/CSS-Tailwind-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-22c55e?style=flat-square)
