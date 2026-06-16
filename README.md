@@ -7,7 +7,7 @@
 ![License](https://img.shields.io/badge/License-MIT-22c55e?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-Active-22c55e?style=flat-square)
 
-A full-featured e-commerce web application built with **Laravel 11**, designed for selling organic products online. It includes a customer-facing storefront, a complete admin panel, order management with real-time status tracking, payment proof uploads, and email notifications.
+A full-featured e-commerce web application built with **Laravel 13**, designed for selling organic products online. It includes a customer-facing storefront, a complete admin panel, order management with real-time status tracking, payment proof uploads, and email notifications.
 
 ---
 
@@ -48,8 +48,8 @@ A full-featured e-commerce web application built with **Laravel 11**, designed f
 
 | Layer | Technology |
 |---|---|
-| Framework | Laravel 11 |
-| Language | PHP 8.2+ |
+| Framework | Laravel 13 |
+| Language | PHP 8.4+ |
 | Database | SQLite (dev) / MySQL (production) |
 | Frontend | Blade templates, vanilla CSS/JS |
 | File Storage | Laravel Storage (public disk) |
@@ -61,7 +61,7 @@ A full-featured e-commerce web application built with **Laravel 11**, designed f
 ## 🚀 Installation & Setup
 
 ### Requirements
-- PHP 8.2+
+- PHP 8.4+
 - Composer
 - Node.js 18+ & npm
 - Git
@@ -215,19 +215,10 @@ storage/
 
 ---
 
-## 🐛 Bugs Fixed (v1.1.0)
 
-| # | Bug | Fix Applied |
-|---|---|---|
-| 1 | Order confirmation & status emails not delivered | Removed duplicate `to:` from `Envelope` in both Mailable classes; errors now logged instead of silently discarded |
-| 2 | COD orders showed "Awaiting Verification" status | `paymentStatusLabel()` in `Order` model now returns "Pay on Delivery" for Cash on Delivery orders |
-| 3 | Messages invisible on both admin and customer side | Renamed the `notes()` Eloquent relationship to `orderNotes()` to match the variable names used in both views |
-| 4 | Payment proof image not visible in admin panel | Switched to `asset()` helper for consistent URL resolution |
-| 5 | Email driver set to `log` (emails never actually sent) | Updated `.env` with correct SMTP settings; documented Mailtrap for local testing |
 
----
 
-## 🚢 Deployment Guide
+##  Deployment Guide
 
 ### Deploy to Shared Hosting (cPanel / Hostinger)
 
