@@ -49,22 +49,22 @@ A **full-featured Laravel 13 E-Commerce Platform** for organic products, featuri
 > 📌 Add your actual images inside `/screenshots` folder in your project.
 
 ### 🏠 Home Page
-![Home Page](screenshots/home.png)
+![Home Page](screenshots/home.jpg)
 
 ### 🛒 Product Listing
-![Products](screenshots/products.png)
+![Products](screenshots/products.jpg)
 
 ### 📦 Cart Page
-![Cart](screenshots/cart.png)
+![Cart](screenshots/cart.jpg)
 
 ### 💳 Checkout Page
-![Checkout](screenshots/checkout.png)
+![Checkout](screenshots/checkout.jpg)
 
 ### 🧑‍💼 Admin Dashboard
-![Admin Dashboard](screenshots/admin-dashboard.png)
+![Admin Dashboard](screenshots/admin-dashboard.jpg)
 
 ### 📊 Order Management
-![Orders](screenshots/orders.png)
+![Orders](screenshots/orders.jpg)
 
 ---
 
